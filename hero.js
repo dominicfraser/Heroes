@@ -6,7 +6,13 @@ var Hero = function(name, health, favFood, tasks){
 }
 
 Hero.prototype = {
-
+  eat: function(food){
+    if (this.favFood === food.name){
+      this.health += (food.replenishment * 1.5);
+    } else {
+      this.health += food.replenishment;
+    }
+  }
 }
 
 module.exports = Hero;

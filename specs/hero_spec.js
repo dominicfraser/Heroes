@@ -1,11 +1,14 @@
 var assert = require('assert')
 var Hero = require('../hero.js')
+var Food = require('../food.js')
 
 describe('Hero', function () {
 
   beforeEach(function(){
     this.hero1 = new Hero("Jake", 110, "Apple");
     this.hero2 = new Hero("Sam", 100, "Orange", ["Task1"]);
+    this.food1 = new Food("Apple", 10);
+    this.food2 = new Food("Pear", 8);
   });
 
   it("should have a name", function(){
@@ -26,6 +29,16 @@ describe('Hero', function () {
 
   it("should have tasks array", function(){
     assert.equal(1, this.hero2.tasks.length);
+  });
+
+  it("should be able to eat food", function(){
+    this.hero1.eat(this.food2);
+    assert.equal(118, this.hero1.health);
+  });
+
+  it("should be able to eat food", function(){
+    this.hero1.eat(this.food1);
+    assert.equal(125, this.hero1.health);
   });
 
 });
