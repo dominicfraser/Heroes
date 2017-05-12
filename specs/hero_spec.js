@@ -5,7 +5,7 @@ describe('Hero', function () {
 
   beforeEach(function(){
     this.hero1 = new Hero("Jake", 110, "Apple");
-    this.hero2 = new Hero("Sam", 100, "Orange", "Task1");
+    this.hero2 = new Hero("Sam", 100, "Orange", ["Task1"]);
   });
 
   it("should have a name", function(){
@@ -24,8 +24,8 @@ describe('Hero', function () {
     assert.equal(0, this.hero1.tasks.length);
   });
 
-  it("should have favourite food", function(){
-    assert.equal("Task1", this.hero2.tasks);
+  it("should have tasks array", function(){
+    assert.equal(1, this.hero2.tasks.length);
   });
 
 });
