@@ -20,4 +20,12 @@ describe('Hero', function () {
     assert.equal("Apple", this.hero1.favFood);
   });
 
+  it("should have default no tasks", function(){
+    assert.equal(0, this.hero1.tasks.length);
+  });
+
+  it("should have favourite food", function(){
+    assert.equal("Task1", this.hero2.tasks);
+  });
+
 });
