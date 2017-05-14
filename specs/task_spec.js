@@ -4,15 +4,15 @@ var Task = require('../task.js')
 describe('Task', function () {
 
   beforeEach(function(){
-    this.task1 = new Task("Hard","High",100);
+    this.task1 = new Task("HIGH",2,100);
   });
 
   it("should have a difficulty", function(){
-    assert.equal("Hard", this.task1.difficulty);
+    assert.equal("HIGH", this.task1.difficulty);
   });
 
   it("should have a urgency", function(){
-    assert.equal("High", this.task1.urgency);
+    assert.equal(2, this.task1.urgency);
   });
 
   it("should have a reward", function(){

@@ -10,9 +10,9 @@ describe('Hero', function () {
     this.hero2 = new Hero("Sam", 100, "Orange", ["Task1"]);
     this.food1 = new Food("Apple", 10);
     this.food2 = new Food("Pear", 8);
-    this.task1 = new Task("HIGH","Medium",100);
-    this.task2 = new Task("MEDIUM","Medium",80);
-    this.task3 = new Task("LOW","Medium",50);
+    this.task1 = new Task("HIGH",2,100);
+    this.task2 = new Task("MEDIUM",3,80);
+    this.task3 = new Task("LOW",1,50);
   });
 
   it("should have a name", function(){
@@ -55,8 +55,26 @@ describe('Hero', function () {
     this.hero1.addTask(this.task1);
     this.hero1.addTask(this.task3);
     this.hero1.sortTaskByDiff();
-    assert.equal(this.task3, this.hero1.tasks[0])
-    assert.equal(this.task1, this.hero1.tasks[2])
+    assert.equal(this.task3, this.hero1.tasks[0]);
+    assert.equal(this.task1, this.hero1.tasks[2]);
   });
+
+  it("should sort tasks by urgency", function(){
+    this.hero1.addTask(this.task2);
+    this.hero1.addTask(this.task1);
+    this.hero1.addTask(this.task3);
+    this.hero1.sortTaskByUrg();
+    assert.equal(this.task3, this.hero1.tasks[0]);
+    assert.equal(this.task2, this.hero1.tasks[2]);
+  })
+
+  it("should sort tasks by urgency", function(){
+    this.hero1.addTask(this.task2);
+    this.hero1.addTask(this.task1);
+    this.hero1.addTask(this.task3);
+    this.hero1.sortTaskByRe();
+    assert.equal(this.task3, this.hero1.tasks[0]);
+    assert.equal(this.task1, this.hero1.tasks[2]);
+  })
 
 });

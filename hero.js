@@ -34,6 +34,16 @@ Hero.prototype = {
       }
       return 0;
     })
+  },
+  sortTaskByUrg: function(){
+    this.tasks.sort(function(a, b){
+      return a.urgency - b.urgency;
+    })
+  },
+  sortTaskByRe: function(){
+    this.tasks.sort(function(a, b){
+      return a.reward - b.reward;
+    })
   }
 }
 
