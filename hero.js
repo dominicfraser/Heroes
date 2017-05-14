@@ -55,6 +55,17 @@ Hero.prototype = {
       }
     }
     return completedTasks;
+  },
+  getNonCompletedTasks: function(){
+    var nonCompletedTasks = this.tasks.map(function(task){
+      return task.completed ? null : task;
+    })
+    for (var i = nonCompletedTasks.length-1; i>=0; i--){
+      if (nonCompletedTasks[i] === null){
+        nonCompletedTasks.splice(i, 1);
+      }
+    }
+    return nonCompletedTasks;
   }
 }
 

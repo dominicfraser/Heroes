@@ -94,4 +94,20 @@ describe('Hero', function () {
     assert.equal(1, completedTasks.length);
   });
 
+  it("should see non completed tasks all non complete", function(){
+    this.hero1.addTask(this.task2);
+    this.hero1.addTask(this.task1);
+    this.hero1.addTask(this.task3);
+    var completedTasks = this.hero1.getNonCompletedTasks();
+    assert.equal(3, completedTasks.length);
+  });
+  it("should see non completed tasks all non complete", function(){
+    this.hero1.addTask(this.task2);
+    this.hero1.addTask(this.task1);
+    this.hero1.addTask(this.task3);
+    this.task3.markCompleted();
+    var completedTasks = this.hero1.getNonCompletedTasks();
+    assert.equal(2, completedTasks.length);
+  });
+
 });
