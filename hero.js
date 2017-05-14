@@ -44,6 +44,17 @@ Hero.prototype = {
     this.tasks.sort(function(a, b){
       return a.reward - b.reward;
     })
+  },
+  getCompletedTasks: function(){
+    var completedTasks = this.tasks.map(function(task){
+      return task.completed ? task : null;
+    })
+    for (var i = completedTasks.length-1; i>=0; i--){
+      if (completedTasks[i] === null){
+        completedTasks.splice(i, 1);
+      }
+    }
+    return completedTasks;
   }
 }
 

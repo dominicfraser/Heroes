@@ -66,7 +66,7 @@ describe('Hero', function () {
     this.hero1.sortTaskByUrg();
     assert.equal(this.task3, this.hero1.tasks[0]);
     assert.equal(this.task2, this.hero1.tasks[2]);
-  })
+  });
 
   it("should sort tasks by urgency", function(){
     this.hero1.addTask(this.task2);
@@ -75,6 +75,23 @@ describe('Hero', function () {
     this.hero1.sortTaskByRe();
     assert.equal(this.task3, this.hero1.tasks[0]);
     assert.equal(this.task1, this.hero1.tasks[2]);
-  })
+  });
+
+  it("should see completed tasks non complete", function(){
+    this.hero1.addTask(this.task2);
+    this.hero1.addTask(this.task1);
+    this.hero1.addTask(this.task3);
+    var completedTasks = this.hero1.getCompletedTasks();
+    assert.equal(0, completedTasks.length);
+  });
+
+  it("should see completed tasks one complete", function(){
+    this.hero1.addTask(this.task2);
+    this.hero1.addTask(this.task1);
+    this.hero1.addTask(this.task3);
+    this.task3.markCompleted();
+    var completedTasks = this.hero1.getCompletedTasks();
+    assert.equal(1, completedTasks.length);
+  });
 
 });
