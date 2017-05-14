@@ -12,6 +12,28 @@ Hero.prototype = {
     } else {
       this.health += food.replenishment;
     }
+  },
+  addTask: function(task){
+    this.tasks.push(task);
+  },
+  sortTaskByDiff: function(){
+    this.tasks.sort(function(a, b){
+      switch (a.difficulty) {
+        case "HIGH":
+            if (!b.difficulty === "HIGH") {
+                return -1;
+            }
+        case "MEDIUM":
+            if (!b.difficulty === "MEDIUM") {
+                return (b.difficulty ==="HIGH" ? 1 : -1);
+            }
+        case "LOW":
+            if (b.difficulty === "LOW") {
+                return 1;
+            }
+      }
+      return 0;
+    })
   }
 }
 
